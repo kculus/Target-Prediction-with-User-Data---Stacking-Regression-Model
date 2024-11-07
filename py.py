@@ -67,14 +67,14 @@ estimators = [
 
 stacking_model = StackingRegressor(estimators=estimators, final_estimator=LinearRegression())
 
-# Modeli eğitme
+#Modeli eğitme
 X_train_split, X_val, y_train_split, y_val = train_test_split(X_train_scaled, y_train, test_size=0.2, random_state=42)
 stacking_model.fit(X_train_split, y_train_split)
 
 # Validation seti üzerinde tahmin yapma
 y_pred = stacking_model.predict(X_val)
 
-# RMSE metriğini hesaplama
+#MSE metriğini hesaplama
 mse = mean_squared_error(y_val, y_pred, squared=False)
 print(f'Validation MSE: {mse}')
 
